@@ -59,6 +59,7 @@ else
             *f*)
                 # Delete workspace
                 rm -rf $WOKSPACE_PATH
+                ;;
             *)
                 echo "Invalid argument: $arg. Valid arguments are 1, 2, 3."
                 ;;
