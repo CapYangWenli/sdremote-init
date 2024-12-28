@@ -14,7 +14,7 @@ CYBER_PONY_URL="https://civitai.com/api/download/models/953264?token=0aa9c7d223a
 DOWNLOAD_PATH="/workspace/stable-diffusion-webui/models/Stable-diffusion"
 WOKSPACE_PATH="/workspace"
 
-STYLES_PATH="workspace/stable-diffusion-webui/styles.csv"
+STYLES_PATH="/workspace/stable-diffusion-webui/styles.csv"
 
 # Function to replace styles.csv
 replace_styles_csv() {
