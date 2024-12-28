@@ -14,6 +14,18 @@ CYBER_PONY_URL="https://civitai.com/api/download/models/953264?token=0aa9c7d223a
 DOWNLOAD_PATH="/workspace/stable-diffusion-webui/models/Stable-diffusion"
 WOKSPACE_PATH="/workspace"
 
+STYLES_PATH="workspace/stable-diffusion-webui/styles.csv"
+
+# Function to replace styles.csv
+replace_styles_csv() {
+    echo "Replacing styles.csv..."
+    cat <<EOL > $STYLES_PATH
+name,prompt,negative_prompt
+realdream,"score_9, score_8_up, score_7_up, score_6_up, score_5_up", "score_6, score_5, score_4, source_pony, (worst quality:1.2), (low quality:1.2), (normal quality:1.2), lowres, bad anatomy"
+EOL
+    echo "styles.csv replaced."
+}
+
 download_model() {
     local url=$1
     local model_name=$2
@@ -21,6 +33,9 @@ download_model() {
     curl -o "$DOWNLOAD_PATH/$model_name" $url
     echo "$model_name downloaded to $DOWNLOAD_PATH."
 }
+
+# Replace styles.csv
+replace_styles_csv
 
 # Check if arguments are passed
 if [ $# -eq 0 ]; then
