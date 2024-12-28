@@ -12,6 +12,7 @@ CYBER_PONY_URL="https://civitai.com/api/download/models/953264?token=0aa9c7d223a
 
 # Define the download path
 DOWNLOAD_PATH="/workspace/stable-diffusion-webui/models/Stable-diffusion"
+WOKSPACE_PATH="/workspace"
 
 download_model() {
     local url=$1
@@ -40,6 +41,9 @@ else
             *3*)
                 download_model $CYBER_PONY_URL "cyber_pony_model"
                 ;;
+            *f*)
+                # Delete workspace
+                rm -rf $WOKSPACE_PATH
             *)
                 echo "Invalid argument: $arg. Valid arguments are 1, 2, 3."
                 ;;
